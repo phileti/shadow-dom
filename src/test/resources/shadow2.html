@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        h1 {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+<h1>DOM element avant shadow</h1>
+<div id="container"></div>
+<h1>DOM element après shadow</h1>
+<script>
+    (function () {
+        var root = container.attachShadow({mode: "open"})
+
+//Inside elements
+        var el = document.createElement("h1")
+        el.textContent = "Inside Shadow DOM"
+        el.id = "inside"
+        root.appendChild(el)
+		
+		el = document.createElement("label")
+		el.id = "nomDoc"
+		el.textContent = "Document "
+        root.appendChild(el)
+		
+        el = document.createElement("textarea")
+		el.textContent = "document name"
+        el.id = "txt"
+		el.name = "doc"
+        root.appendChild(el)
+
+//Access inside element
+        console.log(container.shadowRoot.querySelector("#inside"))
+        console.log(document.getElementById('container').shadowRoot.querySelector("#txt"))
+    })()
+</script>
+</body>
+
+</html>

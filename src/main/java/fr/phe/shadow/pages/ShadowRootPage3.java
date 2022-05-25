@@ -5,7 +5,6 @@ import org.fluentlenium.core.annotation.Unshadow;
 import org.fluentlenium.core.domain.FluentWebElement;
 
 public class ShadowRootPage3 extends FluentPage {
-
     @Override
     public void verifyIsLoaded() {
         await().until(el("div#shadow_host")).displayed();
@@ -19,18 +18,15 @@ public class ShadowRootPage3 extends FluentPage {
 		return content.text();
 	}
 
-	@Unshadow(css = { "#shadow_host", "input[type='text']" })
-	private FluentWebElement texte;
+	@Unshadow(css = {"#shadow_host", "input[type='text']" })
+	private FluentWebElement input;
 	
 	public String getShadowInputValue() {
-		return texte.value();
+		return input.value();
 	}
 	
 	public void setShadowInputValue(String text) {
-		if (!getShadowInputValue().isEmpty()) {
-			texte.clear();
-		}
-		texte.fill().with(text);
+		input.write(text);
 	}
 }
 

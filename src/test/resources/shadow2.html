@@ -10,9 +10,9 @@
 </head>
 
 <body>
-<h1>DOM element avant shadow</h1>
+<h1>DOM's element before shadow</h1>
 <div id="container"></div>
-<h1>DOM element après shadow</h1>
+<h1>DOM's element after shadow</h1>
 <script>
     (function () {
         var root = container.attachShadow({mode: "open"})
@@ -24,19 +24,19 @@
         root.appendChild(el)
 		
 		el = document.createElement("label")
-		el.id = "nomDoc"
+		el.id = "docName"
 		el.textContent = "Document "
         root.appendChild(el)
-		
-        el = document.createElement("textarea")
-		el.textContent = "document name"
+
+        el = document.createElement("input")
+		el.value = "enter name"
         el.id = "txt"
 		el.name = "doc"
         root.appendChild(el)
 
 //Access inside element
         console.log(container.shadowRoot.querySelector("#inside"))
-        console.log(document.getElementById('container').shadowRoot.querySelector("#txt"))
+        console.log(document.getElementById('container').shadowRoot.querySelector('#txt'))
     })()
 </script>
 </body>

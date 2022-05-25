@@ -7,6 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.text.MessageFormat;
 
 import fr.phe.shadow.pages.ShadowRootPage;
+import fr.phe.shadow.pages.ShadowRootPage2;
 import fr.phe.shadow.pages.ShadowRootPage3;
 
 class ShadowRootTest extends AbstractTest {
@@ -29,7 +30,7 @@ class ShadowRootTest extends AbstractTest {
         goTo(AbstractTest.SHADOW_URL2);
         this.getDriver().getPageSource();
 
-        ShadowRootPage shadowRootPage = newInstance(ShadowRootPage.class);
+        ShadowRootPage2 shadowRootPage = newInstance(ShadowRootPage2.class);
         shadowRootPage.verifyIsLoaded();
         assertThat(shadowRootPage.getShadowRootItemText()).contains("Inside Shadow DOM");
         
